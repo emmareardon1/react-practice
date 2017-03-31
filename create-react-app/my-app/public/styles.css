@@ -1,0 +1,9 @@
+li{
+	display:inline;
+	list-style: none;
+}
+
+h1{
+	text-align: center;
+	margin-bottom:32px;
+}
