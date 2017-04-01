@@ -1,8 +1,7 @@
 import React from 'react'
 import Photos from '../components/Photos'
 
-
-class PhotoContainer extends React.Component {
+class PhotosContainer extends React.Component {
   constructor(){
     super()
 
@@ -26,19 +25,27 @@ class PhotoContainer extends React.Component {
   }
 
   showPhoto(photo) {
-    this.context.router.push(`/photos/${photo.url}`)
+    this.context.router.push(`/photos/${photo.id}`)
   }
 
   render(){
     return (
-      <Photos 
+      <Photos
         photos={this.state.photos}
         showPhoto={this.showPhoto}
-      / >
+      />
     )
 
   }
-    
+
 }
 
-export default PhotoContainer
+// YOU NEED TO GET THE ROUTER FROM THE CONTEXT SO YOU NEED TO ADD THIS.
+// BUT THIS WAY IS NOT THE RECOMMENDED ONE, WE'LL SEE THE RECOMMENDED WAY
+// IN THE ADVANCED COURSE SINCE WE NEED TO EXPLAIN A PATTERN
+PhotosContainer.contextTypes = {
+  router: React.PropTypes.object.isRequired
+}
+
+
+export default PhotosContainer

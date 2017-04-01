@@ -2,9 +2,9 @@ import React from 'react'
 
 const Photo = (props) => {
     return (
-      <li>
-        <img 
-        	src={props.src} 
+      <li onClick={props.showPhoto}>
+        <img
+        	src={props.src}
         	alt={props.alt}
         />
       </li>
