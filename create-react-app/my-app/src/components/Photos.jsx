@@ -13,9 +13,12 @@ const Photos = (props) => {
 	);
 
     return (
-      <ul>
-       	{getPhotos}
-      </ul>
+      <div>
+        <h1>My photos</h1>
+        <ul>
+       	  {getPhotos}
+        </ul>
+      </div>
     )
 
 }

@@ -1,14 +1,16 @@
 import React from 'react'
 import Photos from '../components/Photos'
+import { connect } from 'react-redux'
+import * as actions from '../actions'
 
 class PhotosContainer extends React.Component {
   constructor(){
     super()
-
+    /*
     this.state = {
       photos: []
     }
-
+    */
     this.showPhoto = this.showPhoto.bind(this)
   }
 
@@ -17,8 +19,9 @@ class PhotosContainer extends React.Component {
         method: 'get'
     }).then((response) => {
         return response.json()
-    }).then((data) => {
-        this.setState({ photos: data })
+    }).then((somePhotos) => {
+        //this.setState({ photos: data })
+        this.props.dispatch(actions.receivePhotos(somePhotos))
     }).catch((err)=> {
         console.log(err)
     })
@@ -47,5 +50,16 @@ PhotosContainer.contextTypes = {
   router: React.PropTypes.object.isRequired
 }
 
+const mapStateToProps = state => ({
+  photos: state.photos
+})
 
-export default PhotosContainer
+const mapDispatchToProps = dispatch => ({
+  dispatch
+})
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PhotosContainer)
