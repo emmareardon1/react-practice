@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { Router, hashHistory } from 'react-router'
 import Routes from '../config/routes'
 import configureStore from '../configureStore'
-import { Provider } from 'redux'
+import { Provider } from 'react-redux'
 
 const store = configureStore()
 
 class Root extends Component {
   render() {
     return (
-      <Provider store={store}> 
+      <Provider store={store}>
         <Router history={ hashHistory }>{Routes}</Router>
       </Provider>
     );
