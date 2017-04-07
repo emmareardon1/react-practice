@@ -21,6 +21,7 @@ class PhotosContainer extends React.Component {
         return response.json()
     }).then((somePhotos) => {
         //this.setState({ photos: data })
+      debugger
         this.props.dispatch(actions.receivePhotos(somePhotos))
     }).catch((err)=> {
         console.log(err)
@@ -34,7 +35,7 @@ class PhotosContainer extends React.Component {
   render(){
     return (
       <Photos
-        photos={this.state.photos}
+        photos={this.props.photos}
         showPhoto={this.showPhoto}
       />
     )
@@ -51,7 +52,7 @@ PhotosContainer.contextTypes = {
 }
 
 const mapStateToProps = state => ({
-  photos: state.photos
+  photos: state
 })
 
 const mapDispatchToProps = dispatch => ({

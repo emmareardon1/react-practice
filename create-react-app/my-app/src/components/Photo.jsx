@@ -9,7 +9,11 @@ const Photo = (props) => {
         />
       </li>
     )
+}
 
+Photo.propTypes = {
+  src: React.PropTypes.string.isRequired,
+  alt: React.PropTypes.string.isRequired,
 }
 
 export default Photo
